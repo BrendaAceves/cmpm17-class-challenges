@@ -1,8 +1,7 @@
-<p>pet-profile works!</p>
 <body>
-  <h1>Meet My Pet!</h1>
+  <h1>Meet My Pet {{ name() }}!</h1>
 
-  <h2>Name: Mochi</h2>
+  <h2>He is {{ age() }} </h2>
 
   <h3>Hobbies:</h3>
   <ul>
@@ -11,4 +10,6 @@
     <li>Playing fetch</li>
     <li>Chewing toys</li>
   </ul>
+  <button (click) = "getRandomMood()"> Get Mood </button>
+  <h3> He is  {{currentMood()}} </h3>
 </body>
