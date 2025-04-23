@@ -13,4 +13,22 @@
   <button (click) = "getRandomMood()"> Get Mood </button>
   <h3> He is  {{currentMood()}} </h3>
   <button (click)="openCardDialog()">Say Hi</button>
+  <div class="list">
+    To do for {{ name() }}
+    <hr />
+    <div *ngFor="let task of tasks(); let i = index" class="list-item">
+      <div class="item-name" [class.done]="task.status">
+        {{ task.item_name }}
+      </div>
+      <input type="checkbox" [checked]="task.status" (change)="toggleTask(i)" />
+    </div>
+
+    <input
+      type="text"
+      class="task-input"
+      placeholder="Add a task..."
+      [value]="newTaskName()"
+      (input)="newTaskName.set($any($event.target).value)"
+      (keyup.enter)="addTask()" />
+  </div>
 </body>
